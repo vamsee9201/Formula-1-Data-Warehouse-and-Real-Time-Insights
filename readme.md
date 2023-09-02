@@ -1,6 +1,6 @@
 # Formula-1-Data-Warehouse-and-Real-Time-Insights
 
-The Formula 1 datawarehouse will get its data from recurring ETL using ergast API, python, Pandas. Backfilliing of data is done by cleaning pre-existing csv file. 
+The Formula 1 datawarehouse will get its data from recurring ETL using ergast API, python, Pandas and is scheduled by Airflow. Backfilliing of data is done by cleaning pre-existing csv file. 
 
 ER diagram of the Formula 1 data warehouse is as follows :
 

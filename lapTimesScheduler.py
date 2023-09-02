@@ -80,3 +80,4 @@ def getTotalLaps(year,round):
 merged['laps'] = merged.apply(lambda row: getTotalLaps(row['year'], row['round']), axis=1)
 print(merged)
 # %%
+#done with this for today.

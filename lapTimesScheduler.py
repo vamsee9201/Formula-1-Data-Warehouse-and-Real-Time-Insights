@@ -61,3 +61,4 @@ merged = merged[merged['date'] < current_time_utc]
 merged.reset_index(drop = True, inplace=True)
 print(merged)
 # %%
+print("hello")

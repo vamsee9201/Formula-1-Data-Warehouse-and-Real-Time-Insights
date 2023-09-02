@@ -61,4 +61,27 @@ merged = merged[merged['date'] < current_time_utc]
 merged.reset_index(drop = True, inplace=True)
 print(merged)
 # %%
-print("hello")
+#need to get the number of laps for each of these races
+url = "http://ergast.com/api/f1/{}/{}/results.json"
+
+year, round = 2023,4
+#%%
+url = "http://ergast.com/api/f1/{}/{}/results.json".format(year, round)
+print(url)
+time.sleep(1)
+#%%
+payload={}
+headers = {}
+print("getting data from the api >>>")
+response = requests.request("GET", url, headers=headers, data=payload)
+time.sleep(2)
+data = json.loads(response.text)
+print(data)
+time.sleep(1)
+# %%
+totalLapsJson = data['MRData']['RaceTable']['Races'][0]['Results']
+totalLaps = pd.DataFrame(totalLapsJson)
+totalLaps = totalLaps[['laps','status']]
+totalLaps = totalLaps[totalLaps['status'] == "Finished"]['laps'][0]
+print(totalLaps)
+# %%

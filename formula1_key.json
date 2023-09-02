@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "formulaonedw",
+  "private_key_id": "f751593329fc697e2c275282dc65a7046f6b30bf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDXLGKhrUGgviyl\nWm4tm7V3GPOWfIqWozZVUyPFwx3ssJl2G6DzLfvOmCP/1YSw9DMNaFrrxf/gq6nk\nvnFqxBYeix6g1XBQGlEuyC0QbnSwNTbv4sQhDVQ/ayGHZZ1gkVtMBmtTYcd8hYqX\ns4reYAcjG+79yyRv3ONLDzUAd0IhtigLaGn+bCar4SeUJBZXe4ScvGq4a9fBGOrn\nzHrtZ9fXzvNzLeJ7Pc+m1Daktpu4shSUDHQ0ULhtCl/aQ68K3fTqS8oDU3LVtb4A\n+38efcJNFeMr0Ls8gAMsqByrox7OsjYuHsa6I9eLb2o0D8pFPj6Z2foRkzxU4dx2\nJu4ZY/T3AgMBAAECggEARzd2kaJhdU1cQ4Ixs0C1B+0nOiiQShlM82KoFV1l+x/c\nOv4cAEC49gDe8V7/Iv5AI3DlnuGStg67FW1+5mJuG7/Z7EuYd7quIfi5CZY1YtjK\nDQ2V8oaR2sefekvEkeCqQfhh72AOgYVFgL44+S75TcKCEFf7AFcwl3g6B6RxK+yd\njhWefYegUxq2gJBLmw6t59OL5uaqFU3rGeeER7QS8XZwEir7jIkqpTmO73WMsHS2\n4IVAfAU50boOUWQHWuEfranE+JWJMbKOCGntozt2UtBNOXMUKfaCca0q4c4GzB02\nSgo0Zg77aRpVypJVrDzs3yqktJr+vv/S/br0+I5c2QKBgQD7MGZbcaf+AWH4jSuE\nkEv/iuunO/KmrSEjczWVvA2YZIGp39gs4xLIG+63G7Ar2x/QRqnXYrPs49fNfH/O\nxJLRv4dIfWVWpqN+hBV8hInMUGKzYf4PN7lgZqAUy7S9O1IkUk+5KpswNLiZ1XW+\n7q7dCmhZyMto94I5rvGN/vcL2wKBgQDbS2XNOSueN+jURwMAIrg2ZwWCsvUIGfOY\nrIMu/SjKD2FtZk8dhJFvNTXqf2yeOWYifIV525CqE9OrmA1AvwwYehKX2T9GpSqW\nUQfJiUN6Id6JEw00CadwIOB/s7u4JISLnkREPKGTAK35s6J00Z0kHgr8B/eAiZbk\nvtprf360FQKBgDe/cSggXGlaQzUXl63vHH7VhSFzg5IMYItumVjnCJlmzQQ3otGr\nf9KbqGpJIdtJ4ZCm7jDYPhh4JL/9PpxUMkWM3WhwNBp8F1MP23jsLW0D9jPbrrgP\n5PuJK0QSRcWtsbhP8FOnKhQTz1iM8Hn0nSh/k9NBZiugqu1Eb2XVTVz7AoGAHdE3\nq1rdqmqxtsNdDhSqdYM2hZntpUdaDuVOBQKZHDhRJ/3kPgA7giJ7DUJ8M1tcns3N\nnE8VcXq2qjtHeglADMf0ZT890k485ylnZKjMSvv19S9o+S1i3eUqgVKf8J7Oguln\nINwZoBJUlYIuUbH6quGG3tP6fDi5Eqs8qacxRC0CgYAXeI0rpLX94PfBATroniR9\nXYDItjw4Ts2ZGLSWlbxlBGSnGrQc5fZ7JfZItz2f3AwbYxUqH1CKjvGWuWLZQebb\nfP13D46CeznnteqfKfhi9PeUYd54VrcKtqRLJ464SxKoukTXJvTfFml9HLGsx2ML\nv1XHKw7eXAIsFmUwyrEpwg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "vamsee-formula1@formulaonedw.iam.gserviceaccount.com",
+  "client_id": "107337333355905217002",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vamsee-formula1%40formulaonedw.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -62,26 +62,21 @@ merged.reset_index(drop = True, inplace=True)
 print(merged)
 # %%
 #need to get the number of laps for each of these races
-url = "http://ergast.com/api/f1/{}/{}/results.json"
-
-year, round = 2023,4
+def getTotalLaps(year,round):
+    time.sleep(2)
+    url = "http://ergast.com/api/f1/{}/{}/results.json".format(year, round)
+    payload={}
+    headers = {}
+    print("adding no of laps >>>")
+    response = requests.request("GET", url, headers=headers, data=payload)
+    data = json.loads(response.text)
+    totalLapsJson = data['MRData']['RaceTable']['Races'][0]['Results']
+    totalLaps = pd.DataFrame(totalLapsJson)
+    totalLaps = totalLaps[['laps','status']]
+    totalLaps = totalLaps[totalLaps['status'] == "Finished"]['laps'][0]
+    print(totalLaps)
+    return totalLaps
 #%%
-url = "http://ergast.com/api/f1/{}/{}/results.json".format(year, round)
-print(url)
-time.sleep(1)
-#%%
-payload={}
-headers = {}
-print("getting data from the api >>>")
-response = requests.request("GET", url, headers=headers, data=payload)
-time.sleep(2)
-data = json.loads(response.text)
-print(data)
-time.sleep(1)
-# %%
-totalLapsJson = data['MRData']['RaceTable']['Races'][0]['Results']
-totalLaps = pd.DataFrame(totalLapsJson)
-totalLaps = totalLaps[['laps','status']]
-totalLaps = totalLaps[totalLaps['status'] == "Finished"]['laps'][0]
-print(totalLaps)
+merged['laps'] = merged.apply(lambda row: getTotalLaps(row['year'], row['round']), axis=1)
+print(merged)
 # %%

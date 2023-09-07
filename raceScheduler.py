@@ -109,6 +109,9 @@ time.sleep(1)
 races.rename(columns= {'season':'year'},inplace=True)
 time.sleep(1)
 # %%
+races['year'] = races['year'].astype(int)
+races['round'] = races['round'].astype(int)
+#%%
 print('getting data about existing race schedules >>>')
 time.sleep(1)
 sql = """

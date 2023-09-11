@@ -4,7 +4,10 @@
 
 Data is extracted from flat files and Ergast API, then staged and transformed in Python for further processing. Subsequently, this data is loaded into a BigQuery data warehouse. This entire workflow is managed and orchestrated in Airflow. Once the data is prepared, it can be utilized for visualization in Tableau and for deriving insights.
 
-ER diagram of the Formula 1 data warehouse is as follows :
+The data warehouse schema is structured as follows:
+
+![Process](Docs/schema.jpeg)
+
 
 In progress:
 

@@ -8,7 +8,7 @@ The data warehouse schema is structured as follows:
 
 ![Process](Docs/schema.jpeg)
 
-###Planned Tableau dashboards:
+### Planned Tableau dashboards:
 - Race results dashboard
 - Driver performance trends dashboard
 - Driver comparison dashboard

@@ -8,9 +8,9 @@ The data warehouse schema is structured as follows:
 
 ![Process](Docs/schema.jpeg)
 
-
-In progress:
-
-- Setting up ETL for the fact tables
-- Tableau dashboards
-- Insights from exploratory data analysis and Machine learning models
+###Planned Tableau dashboards:
+- Race results dashboard
+- Driver performance trends dashboard
+- Driver comparison dashboard
+- Team performance trends dashboard
+- Pitstop and race results comparison dashboard

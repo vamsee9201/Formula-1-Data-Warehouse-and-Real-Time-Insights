@@ -8,6 +8,9 @@ Data is extracted from flat files and Ergast API, then staged and transformed in
 
 ![Process](Docs/schema.jpeg)
 
+### Dashboards:
+### <ins>Driver's performance over the years:<ins>
+![Process](Docs/driverPerformance.jpg)
 ### <ins>Planned Tableau dashboards:</ins>
 - Race results dashboard
 - Driver performance trends dashboard

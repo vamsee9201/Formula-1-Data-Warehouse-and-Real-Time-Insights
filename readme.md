@@ -8,11 +8,11 @@ Data is extracted from flat files and Ergast API, then staged and transformed in
 
 ![Process](Docs/schema.jpeg)
 
-### <ins>Dashboards:<ins>
+### <ins>Visualizations:<ins>
 ### Driver's performance over the years:
 link : https://lookerstudio.google.com/u/0/reporting/cd331a78-3319-4993-a538-2281e6502f4c/page/z6qfD
 ![Process](Docs/driverPerformance.jpg)
-### <ins>Planned Tableau dashboards:</ins>
+### <ins>Planned visualizations:</ins>
 - Race results dashboard
 - Driver performance trends dashboard
 - Driver comparison dashboard

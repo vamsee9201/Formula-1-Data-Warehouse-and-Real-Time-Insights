@@ -29,7 +29,6 @@ existingSR.drop_duplicates(inplace = True)
 existingSR.reset_index(drop=True,inplace=True)
 print(existingSR)
 # %%
-
 #getting race schedule data
 sql = """
 SELECT * FROM `formulaonedw.f1Entities.raceDetails` 
@@ -40,8 +39,8 @@ print(raceSchedule)
 raceSchedule = raceSchedule[['year','round','date']]
 print(raceSchedule)
 # %%
-existingSR['year'] = existingSR['year'].astype(str)
-existingSR['round'] = existingSR['round'].astype(str)
+existingSR['year'] = existingSR['year'].astype('Int64')
+existingSR['round'] = existingSR['round'].astype('Int64')
 #%%
 merged = raceSchedule.merge(existingSR,on = ['year','round'],how = "left",indicator=True)
 print(merged)
@@ -81,3 +80,6 @@ merged['laps'] = merged.apply(lambda row: getTotalLaps(row['year'], row['round']
 print(merged)
 # %%
 #done with this for today.
+#%%
+#done with this for today
+#%%

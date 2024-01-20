@@ -114,13 +114,13 @@ print(raceDumpU)
 # %%
 
 #face table data
-constructors = pd.read_csv("/Users/vamseekrishna/Desktop/Portfolio/DE projects/F1 project/f1db_csv/constructors.csv")
+constructors = pd.read_csv("f1db_csv/constructors.csv")
 print(constructors)
-drivers = pd.read_csv("/Users/vamseekrishna/Desktop/Portfolio/DE projects/F1 project/f1db_csv/drivers.csv")
+drivers = pd.read_csv("f1db_csv/drivers.csv")
 print(drivers)
-races = pd.read_csv("/Users/vamseekrishna/Desktop/Portfolio/DE projects/F1 project/f1db_csv/races.csv")
+races = pd.read_csv("f1db_csv/races.csv")
 print(races)
-raceResults = pd.read_csv("/Users/vamseekrishna/Desktop/Portfolio/DE projects/F1 project/f1db_csv/results.csv")
+raceResults = pd.read_csv("f1db_csv/results.csv")
 print(raceResults)
 # %%
 print(raceResults)
@@ -315,12 +315,12 @@ lapTimesDump.rename(columns= {'number':'driverId','milliseconds':'seconds'},inpl
 # %%
 print(lapTimesDump)
 # %%
-pandas_gbq.to_gbq(lapTimesDump, "f1Results.lapTimes", project_id="formulaonedw",if_exists='append')
+#pandas_gbq.to_gbq(lapTimesDump, "f1Results.lapTimes", project_id="formulaonedw",if_exists='append')
 
 
 # %%
 #pit stops
-pitStops = pd.read_csv("/Users/vamseekrishna/Desktop/Portfolio/DE projects/F1 project/f1db_csv/pit_stops.csv")
+pitStops = pd.read_csv("f1db_csv/pit_stops.csv")
 print(pitStops)
 # %%
 races_pitStops_merged = pd.merge(pitStops,races,on = "raceId",how = "inner")
@@ -328,14 +328,14 @@ print(races_pitStops_merged)
 # %%
 print(races_pitStops_merged.columns)
 # %%
-races_pitStops_merged = races_pitStops_merged[[ 'driverId', 'stop', 'lap','duration',
+races_pitStops_merged = races_pitStops_merged[[ 'driverId', 'stop', 'lap','milliseconds',
        'year', 'round']]
 print(races_pitStops_merged)
 # %%
 drivers_races_pitStops_merged = pd.merge(races_pitStops_merged,drivers,on = "driverId",how = "inner")
 print(drivers_races_pitStops_merged.columns)
 # %%
-drivers_races_pitStops_merged = drivers_races_pitStops_merged[['year', 'round','number','stop', 'lap', 'duration', 
+drivers_races_pitStops_merged = drivers_races_pitStops_merged[['year', 'round','number','stop', 'lap', 'milliseconds', 
        ]]
 print(drivers_races_pitStops_merged)
 # %%
@@ -347,9 +347,11 @@ print(pitStopsDump)
 # %%
 pitStopsDump.reset_index(drop=True,inplace=True)
 # %%
+pitStopsDump['milliseconds'] = pitStopsDump['milliseconds']/1000
 print(pitStopsDump)
-# %%
-pandas_gbq.to_gbq(pitStopsDump, "f1Results.pitStops", project_id="formulaonedw",if_exists='append')
+#%%
+pitStopsDump.rename(columns={'seconds':'duration'},inplace=True)
+#pandas_gbq.to_gbq(pitStopsDump, "f1Results.pitStops", project_id="formulaonedw",if_exists='append')
 
 # %%
 print(raceDumpU)

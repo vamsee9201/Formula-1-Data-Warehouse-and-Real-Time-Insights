@@ -50,3 +50,27 @@ allDrivers = driversBackFill[['firstName','lastName','driverId','nationality']].
 allteams = driversBackFill[['year','team','driverId']]
 
 # %%
+#trying to get schedules
+year = 2023
+schedule_url = "https://www.formula1.com/en/results.html/{}/races.html".format(year)
+response = requests.get(schedule_url)
+soup = BeautifulSoup(response.text, 'html.parser')
+grandPrixs = [element.text for element in soup.find('select',{"class":"resultsarchive-filter-form-select","name":"meetingKey"}).find('option').find_all_next('option')]
+#%%
+grandPrixs = [string.lower().replace(" ","-") for string in grandPrixs]
+
+# %%
+links = [element.get("data-value") for element in soup.find_all('a',{"class" : "resultsarchive-filter-item-link FilterTrigger","data-name":"meetingKey"})]
+grandPrixs = [element.find('span').text.lower().replace(" ","-") for element in soup.find_all('a',{"class" : "resultsarchive-filter-item-link FilterTrigger","data-name":"meetingKey"})]
+#soup.find_all('a',{"class" : "resultsarchive-filter-item-link FilterTrigger","data-name":"meetingKey"})
+# %%
+links = ["https://www.formula1.com/en/results.html/{}/races/{}/race-result.html".format(year,link) for link in links]
+#%%
+scheduleData = {
+    "grandPrix":grandPrixs,
+    "link":links
+}
+schedule = pd.DataFrame(scheduleData)
+# %%
+schedule
+# %%

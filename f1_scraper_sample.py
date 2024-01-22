@@ -79,15 +79,42 @@ print(schedule['link'][0])
 # %%
 linkList = schedule['link'].to_list()
 #%%
-scheduleResponse = requests.get(linkList[0])
-scheduleSoup = BeautifulSoup(scheduleResponse.text, 'html.parser')
-circuitInfo = scheduleSoup.find('span',{"class":"circuit-info"}).text
-startDate = scheduleSoup.find('span',{"class":"start-date"}).text
-endDate = scheduleSoup.find('span',{"class":"full-date"}).text
+def getCircuitDetails(schedule):
+    linkList = schedule['link'].to_list()
+    circuitNames = []
+    cities = []
+    startDates = []
+    endDates = []
+    for link in linkList:
+        scheduleResponse = requests.get(link)
+        scheduleSoup = BeautifulSoup(scheduleResponse.text, 'html.parser')
+        circuitInfo = scheduleSoup.find('span',{"class":"circuit-info"}).text
+        parts = circuitInfo.split(",")
+        circuitName = parts[0].strip()
+        city = parts[0].strip()
+        startDate = scheduleSoup.find('span',{"class":"start-date"}).text
+        endDate = scheduleSoup.find('span',{"class":"full-date"}).text
+        date_format = "%d %b %Y"
+        endDateTime = datetime.strptime(endDate,date_format)
+        monthYear = endDateTime.strftime("%b %Y")
+        startDate = startDate + " {}".format(monthYear)
+        startDateTime = datetime.strptime(startDate,date_format)
+        circuitNames.append(circuitName)
+        cities.append(city)
+        startDates.append(startDate)
+        endDates.append(endDate)
+    return startDates
+    
+
 # %%
-date_format = "%d %b %Y"
-endDateTime = datetime.strptime(endDate,date_format)
-monthYear = endDateTime.strftime("%b %Y")
-startDate = startDate + " {}".format(monthYear)
-startDateTime = datetime.strptime(startDate,date_format)
+startDates = getCircuitDetails(schedule)
+startDates
+""""
+str = "Bahrain International Circuit, Sakhir"
+parts = str.split(",")
+first_part = parts[0].strip()
+second_part = parts[1].strip()
+second_part
+"""
+
 # %%

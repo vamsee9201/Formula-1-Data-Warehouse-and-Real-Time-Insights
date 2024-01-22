@@ -79,6 +79,10 @@ print(schedule['link'][0])
 # %%
 linkList = schedule['link'].to_list()
 #%%
+def getStamps(startDate,endDate):
+    
+    return "01"
+#%%
 def getCircuitDetails(schedule):
     linkList = schedule['link'].to_list()
     circuitNames = []
@@ -94,21 +98,20 @@ def getCircuitDetails(schedule):
         city = parts[0].strip()
         startDate = scheduleSoup.find('span',{"class":"start-date"}).text
         endDate = scheduleSoup.find('span',{"class":"full-date"}).text
-        date_format = "%d %b %Y"
-        endDateTime = datetime.strptime(endDate,date_format)
-        monthYear = endDateTime.strftime("%b %Y")
-        startDate = startDate + " {}".format(monthYear)
-        startDateTime = datetime.strptime(startDate,date_format)
+        stamps = getStamps(startDate,endDate)
+        startStamp = stamps[0]
+        endStamps = stamps[1]
         circuitNames.append(circuitName)
         cities.append(city)
-        startDates.append(startDate)
-        endDates.append(endDate)
-    return startDates
+        startDates.append(startStamp)
+        endDates.append(endStamps)
+    return cities
     
 
 # %%
 startDates = getCircuitDetails(schedule)
-startDates
+#%%
+print(startDates)
 """"
 str = "Bahrain International Circuit, Sakhir"
 parts = str.split(",")
@@ -118,3 +121,9 @@ second_part
 """
 
 # %%
+startDate = "31 Mar"
+endDate = "01 Apr 2023"
+if int(startDate[0:2]) < int(endDate[0:2]):
+    monthYear = datetime1.strftime("%b %Y")
+else :
+

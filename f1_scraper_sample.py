@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import time
+from datetime import datetime
 #%%
 def getDriversData(year):
     drivers_url = "https://www.formula1.com/en/results.html/{}/drivers.html".format(year)
@@ -78,6 +79,15 @@ print(schedule['link'][0])
 # %%
 linkList = schedule['link'].to_list()
 #%%
-scheduleResponse = requests.get(linkList)
-
+scheduleResponse = requests.get(linkList[0])
+scheduleSoup = BeautifulSoup(scheduleResponse.text, 'html.parser')
+circuitInfo = scheduleSoup.find('span',{"class":"circuit-info"}).text
+startDate = scheduleSoup.find('span',{"class":"start-date"}).text
+endDate = scheduleSoup.find('span',{"class":"full-date"}).text
+# %%
+date_format = "%d %b %Y"
+endDateTime = datetime.strptime(endDate,date_format)
+monthYear = endDateTime.strftime("%b %Y")
+startDate = startDate + " {}".format(monthYear)
+startDateTime = datetime.strptime(startDate,date_format)
 # %%

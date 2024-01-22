@@ -65,6 +65,7 @@ grandPrixs = [element.find('span').text.lower().replace(" ","-") for element in 
 #soup.find_all('a',{"class" : "resultsarchive-filter-item-link FilterTrigger","data-name":"meetingKey"})
 # %%
 links = ["https://www.formula1.com/en/results.html/{}/races/{}/race-result.html".format(year,link) for link in links]
+links
 #%%
 scheduleData = {
     "grandPrix":grandPrixs,
@@ -72,5 +73,11 @@ scheduleData = {
 }
 schedule = pd.DataFrame(scheduleData)
 # %%
-schedule
+print(schedule['link'][0])
+
+# %%
+linkList = schedule['link'].to_list()
+#%%
+scheduleResponse = requests.get(linkList)
+
 # %%
